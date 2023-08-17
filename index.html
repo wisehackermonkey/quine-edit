@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>Quine Edit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body, h1, textarea, button { margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; background-color: #f7f9fc; color: #333; padding: 40px; }
+        h1 { font-weight: 500; margin-bottom: 20px; }
+        .fancybutton { background: #3498db; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s; margin-bottom: 20px; }
+        .fancybutton:hover { background: #2980b9; }
+        #text { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-family: 'Poppins', sans-serif; font-size: 14px; }
+    </style>
+</head>
+
+<body>
+    <h1>Quine Edit</h1>
+    <h2>Everything is editable!</h2>
+    <h3>change text bellow then hit "modify page"</h3>
+     <button id="btn" class="fancybutton" >Modify Page</button>
+    <button id="nukebutton"   class="fancybutton" onclick='nuke()'>NUKE EVERYTHING!</button>
+
+    <textarea id="text" cols="50" rows="25" onchange="update()">edit source here</textarea>
+    <h3> Examples of what you can do</h3>
+    <p>add elements to a page example: &lt;h1&gt; HACKER MAN &lt;/h1&gt;  then click "modify page"</p>
+</body>
+<script>
+    document.getElementById('text').value =  document.documentElement.innerHTML
+    function update(){
+        document.documentElement.innerHTML = document.getElementById('text').value
+        document.getElementById('text').value = document.documentElement.innerHTML
+    }
+    function nuke(){
+        document.writeln("<h1>NUKED!</h1><img width=100 src='ast.gif'>")
+        document.writeln("</h1><img width=200 src='ast.gif'>")
+
+        document.writeln("</h1><img width=300 src='ast.gif'>")
+        
+    }
+</script>
+
+</html>
